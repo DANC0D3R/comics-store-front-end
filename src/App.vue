@@ -16,9 +16,8 @@
 
 <template>
   <HeaderApp/>
-  
-  <router-view>
-  </router-view>
+
+  <router-view></router-view>
 
 </template>
 

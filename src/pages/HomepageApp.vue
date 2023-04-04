@@ -27,10 +27,12 @@ export default {
 <template>
 
     <div v-for="comic in comics">
+        <p>id: {{ comic.id }}</p>
         <p>Titolo: {{ comic.name }}</p>
         <router-link :to=" {name: 'show-comic', params: {id: comic.id}}">
             Vai a comic
         </router-link>
+        <hr>
     </div>
 
 </template>

@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'HomepageApp',
+    name: 'ShowComicApp',
     data() {
         return {
             url: 'http://127.0.0.1:8000/api/comics',
@@ -12,9 +12,9 @@ export default {
     methods:{
         getShowComics(){
             axios.get(`http://127.0.0.1:8000/api/comics/${this.$route.params.id}`)
-            .then(response=>{
-                console.log(response.data.comics);
-                // this.comic = response.data.comics
+            .then(response => {
+                console.log(response);
+                this.comic = response.data.comics
             })
         }
     },
@@ -27,10 +27,11 @@ export default {
 
 <template>
     
-    <div>
-        <h2>
-            {{ comic.name }}
-        </h2>
+    <div v-if="comic">
+        <h2>{{ comic.name }}</h2>
+        <p>{{ comic.description }}</p>
+        <p><b>Prezzo:</b> € {{ comic.price }}</p>
+        <p><b>Quantità disponibile:</b> {{ comic.quantity }}</p>
     </div>
 
 </template>
